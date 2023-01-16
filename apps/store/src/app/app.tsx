@@ -9,10 +9,13 @@ import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
 
-export const App = () => {
+import { Header } from "@nxreactapp/store/ui-shared";
 
+export const App = () => {
   return (
-    <div className="container">
+    <>
+      <Header/>
+      <div className="container">
       <div className="games-layout">
         {getAllGames().map((x) => (
           <Card key={x.id} className="game-card">
@@ -43,6 +46,7 @@ export const App = () => {
         ))}
       </div>
     </div>
+    </>
   );
 };
 

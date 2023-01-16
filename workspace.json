@@ -15,12 +15,15 @@
             "main": "apps/store/src/main.tsx",
             "polyfills": "apps/store/src/polyfills.ts",
             "tsConfig": "apps/store/tsconfig.app.json",
-            "assets": ["apps/store/src/favicon.ico", "apps/store/src/assets",
-            {
-              "input": ".",
-              "glob": "*.png",
-              "output": ""
-            }],
+            "assets": [
+              "apps/store/src/favicon.ico",
+              "apps/store/src/assets",
+              {
+                "input": ".",
+                "glob": "*.png",
+                "output": ""
+              }
+            ],
             "styles": ["apps/store/src/styles.scss"],
             "scripts": [],
             "webpackConfig": "@nrwl/react/plugins/webpack"
@@ -106,6 +109,33 @@
             "linter": "eslint",
             "tsConfig": ["apps/store-e2e/tsconfig.e2e.json"],
             "exclude": ["**/node_modules/**", "!apps/store-e2e/**/*"]
+          }
+        }
+      }
+    },
+    "store-ui-shared": {
+      "root": "libs/store/ui-shared",
+      "sourceRoot": "libs/store/ui-shared/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "libs/store/ui-shared/tsconfig.lib.json",
+              "libs/store/ui-shared/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/store/ui-shared/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/store/ui-shared/jest.config.js",
+            "tsConfig": "libs/store/ui-shared/tsconfig.spec.json",
+            "passWithNoTests": true
           }
         }
       }
