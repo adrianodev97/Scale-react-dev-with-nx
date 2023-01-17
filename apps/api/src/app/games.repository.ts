@@ -1,4 +1,4 @@
-import { Game } from "@nxreactapp/api/util-interfaces";
+import { Game } from '@nxreactapp/api/util-interfaces';
 
 const games: Game[] = [
   {

@@ -47,6 +47,7 @@ export const StoreFeatureGameDetail = (props: StoreFeatureGameDetailProps) => {
         });
       });
   }, [props.match.params.id]);
+
   return (
     <div className="container">
       {state.loadingState === 'loading' ? (
