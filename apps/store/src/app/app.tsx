@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import './app.scss';
 import { getAllGames } from '../fake-api';
@@ -19,13 +19,44 @@ import { StoreFeatureGameDetail } from '@nxreactapp/store/feature-game-detail';
 
 export const App = () => {
   const history = useHistory();
+  const [state, setState] = useState<{
+    data: any[];
+    loadingState: "success" | "error" | "loading"
+  }>({
+    data: [],
+    loadingState: "success"
+  })
+
+  useEffect(() => {
+    setState({
+      ...state,
+      loadingState: "loading"
+    });
+    fetch("/api/games")
+      .then((x) => x.json())
+      .then((res) => {
+        setState({
+          ...state,
+          data: res,
+          loadingState: "success"
+        })
+      })
+      .catch((error) => {
+        setState({
+          ...state,
+          loadingState: "error"
+        })
+      })
+  }, [])
 
   return (
     <>
       <Header />
       <div className="container">
         <div className="games-layout">
-          {getAllGames().map((x) => (
+          {state.loadingState === "loading"?
+            "loading..." : state.loadingState === "error" ?
+             "<div>Error retieving data</div>" : state.data.map((x) => (
             <Card
               key={x.id}
               className="game-card"
