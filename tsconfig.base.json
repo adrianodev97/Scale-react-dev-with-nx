@@ -16,8 +16,15 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@nxreactapp/store/ui-shared": ["libs/store/ui-shared/src/index.ts"],
-      "@nxreactapp/store/util-formatters": ["libs/store/util-formatters/src/index.ts"]
+      "@nxreactapp/store/ui-shared": [
+        "libs/store/ui-shared/src/index.ts"
+      ],
+      "@nxreactapp/store/util-formatters": [
+        "libs/store/util-formatters/src/index.ts"
+      ],
+      "@nxreactapp/store/feature-game-detail": [
+        "libs/store/feature-game-detail/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]
