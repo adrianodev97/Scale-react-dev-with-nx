@@ -16,9 +16,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@nxreactapp/store/ui-shared": [
-        "libs/store/ui-shared/src/index.ts"
-      ],
+      "@nxreactapp/store/ui-shared": ["libs/store/ui-shared/src/index.ts"],
       "@nxreactapp/store/util-formatters": [
         "libs/store/util-formatters/src/index.ts"
       ],
